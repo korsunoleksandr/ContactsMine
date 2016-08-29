@@ -1,4 +1,17 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.1'
+    }
+}
 
 android {
     compileSdkVersion 23
@@ -15,13 +28,53 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'int', 'LOG_LEVEL', 'android.util.Log.VERBOSE'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'NOTICE'
+        exclude 'asm-license.txt'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+}
+
+kapt {
+    generateStubs = true
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:design:23.4.0'
+
+    compile kotlin.stdlib
+
+    compile support.appcompat
+    compile support.design
+    compile support.annotations
+    compile support.recyclerview
+    compile support.cardview
+
+    compile square.timber
+    compile square.picasso
+
+    compile ormlite.core
+    compile ormlite.android
+
+    compile rx.java
+    compile rx.android
+    compile rx.androidProguard
+
+    compile dagger.dagger
+    kapt dagger.compiler
+    provided dagger.annotations
 }
