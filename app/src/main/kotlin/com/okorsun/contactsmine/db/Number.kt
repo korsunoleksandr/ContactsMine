@@ -20,6 +20,9 @@ class Number {
     @DatabaseField(canBeNull = false)
     var type: PhoneType = PhoneType.MOBILE
 
+    @DatabaseField(canBeNull = false)
+    var number: String = ""
+
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     var contact: Contact? = null
 }

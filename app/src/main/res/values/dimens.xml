@@ -1,5 +1,5 @@
 <resources>
-    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="app_bar_height">220dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
 
@@ -9,6 +9,10 @@
     <dimen name="list_item.avatar_diameter">40dp</dimen>
     <dimen name="list_item.text_padding">16dp</dimen>
     <dimen name="list_item.text_left_margin">72dp</dimen>
+    <dimen name="list_itme.icont_pading">16dp</dimen>
 
     <dimen name="list.vertical_padding">8dp</dimen>
+
+    <dimen name="photo_view_activity.scrim_height">124dp</dimen>
+
 </resources>
