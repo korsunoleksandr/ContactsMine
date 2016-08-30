@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item.height">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/contact_image"
+        android:layout_width="@dimen/list_item.height"
+        android:layout_height="@dimen/list_item.height"
+        android:layout_centerVertical="true"
+        android:paddingLeft="@dimen/list_item.avatar_side_padding"
+        tools:src="@color/cardview_dark_background"/>
+
+    <TextView
+        android:id="@+id/contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/list_item.text_left_margin"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        tools:text="Oleksandr Korsun"/>
+
+</RelativeLayout>

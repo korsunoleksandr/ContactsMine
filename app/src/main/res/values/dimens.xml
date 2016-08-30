@@ -2,4 +2,13 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+
+    <dimen name="list_item.height">56dp</dimen>
+    <dimen name="list_item.avatar_side_padding">16dp</dimen>
+    <dimen name="list_item.avatar_diameter">40dp</dimen>
+    <dimen name="list_item.text_padding">16dp</dimen>
+    <dimen name="list_item.text_left_margin">72dp</dimen>
+
+    <dimen name="list.vertical_padding">8dp</dimen>
 </resources>

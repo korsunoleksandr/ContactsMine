@@ -107,7 +107,7 @@ ext {
 
     other = [
             recyclerViewPager : "com.github.lsjwzh.RecyclerViewPager:lib:v1.1.0-beta3",
-            circleImageView   : "de.hdodenhof:circleimageview:2.0.0",
+            circleImageView   : "de.hdodenhof:circleimageview:2.1.0",
             dateRangePicker   : "com.borax12.materialdaterangepicker:library:1.6",
             shapeImageView    : "com.github.siyamed:android-shape-imageview:0.9.3@aar",
             gifDrawable       : "pl.droidsonroids.gif:android-gif-drawable:1.1.7",

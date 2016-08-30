@@ -79,4 +79,5 @@ dependencies {
     provided dagger.annotations
 
     compile pedrovgs.renderers
+    compile other.circleImageView
 }
