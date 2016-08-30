@@ -7,13 +7,17 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.okorsun.contactsmine.R
 import com.okorsun.contactsmine.common.bindView
 import com.okorsun.contactsmine.common.createRendererAdapter
 import com.okorsun.contactsmine.db.Contact
 import com.okorsun.contactsmine.db.Number
 import com.okorsun.contactsmine.di.component.ApplicationComponent
+import com.okorsun.contactsmine.di.component.DaggerAllContactsActivityComponent
+import com.okorsun.contactsmine.di.component.DaggerContactDetailsActivityComponent
 import com.okorsun.contactsmine.di.component.UiComponent
+import com.okorsun.contactsmine.di.module.ContactModule
 import com.okorsun.contactsmine.presentation.base.BaseActivity
 import com.okorsun.contactsmine.widget.DividerItemDecoration
 import com.pedrogomez.renderers.RVRendererAdapter
@@ -73,12 +77,15 @@ class ContactDetailsActivity : BaseActivity<ContactDetailsPresenter, ContactDeta
     }
 
     override fun showMessage(message: String) {
-        throw UnsupportedOperationException()
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun createComponent(applicationComponent: ApplicationComponent): UiComponent<ContactDetailsPresenter, ContactDetailsView> {
-        throw UnsupportedOperationException()
+        val contactId = intent.getIntExtra(ContactDetailsRouter.CONTACT_ID, -1)
+        return DaggerContactDetailsActivityComponent.builder()
+                .applicationComponent(applicationComponent)
+                .contactModule(ContactModule(contactId))
+                .build()
+
     }
-
-
 }

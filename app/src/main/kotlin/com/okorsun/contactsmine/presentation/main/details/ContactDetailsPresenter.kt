@@ -3,8 +3,10 @@ package com.okorsun.contactsmine.presentation.main.details
 import com.okorsun.contactsmine.core.ContactsManager
 import com.okorsun.contactsmine.core.RxSchedulers
 import com.okorsun.contactsmine.db.Contact
+import com.okorsun.contactsmine.di.UiScope
 import com.okorsun.contactsmine.presentation.base.Presenter
 import com.okorsun.contactsmine.presentation.base.PresenterView
+import javax.inject.Inject
 
 /**
  * Created by okorsun on 30.08.16.
@@ -15,7 +17,10 @@ interface ContactDetailsView : PresenterView {
     fun showMessage(message: String)
 }
 
-class ContactDetailsPresenter(private val rxSchedulers: RxSchedulers,
+@UiScope
+class ContactDetailsPresenter
+@Inject
+constructor(private val rxSchedulers: RxSchedulers,
                               private val contactsManager: ContactsManager,
                               private val contactId: Int) : Presenter<ContactDetailsView>() {
 
